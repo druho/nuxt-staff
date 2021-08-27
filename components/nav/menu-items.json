@@ -1,0 +1,12 @@
+[
+  {
+    "icon": "mdi-briefcase-check-outline",
+    "title": "Plug & Mod",
+    "to": "/plugins"
+  },
+  {
+    "icon": "mdi-briefcase-check-outline",
+    "title": "foo",
+    "to": "/foo"
+  }
+]
