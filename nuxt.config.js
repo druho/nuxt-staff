@@ -23,6 +23,7 @@ export default {
 
   // Plugins to run before rendering page: https://go.nuxtjs.dev/config-plugins
   plugins: [
+    '@/plugins/api/nuxtApi'
   ],
 
   // Auto import components: https://go.nuxtjs.dev/config-components
@@ -39,10 +40,26 @@ export default {
     // https://go.nuxtjs.dev/axios
     '@nuxtjs/axios',
     '@nuxtjs/sentry',
+    // 'nuxt-logrocket',
   ],
 
   // Axios module configuration: https://go.nuxtjs.dev/config-axios
-  axios: {},
+  axios: {
+    proxy: true,
+  },
+  proxy: {
+    '/apiTypicode/': {
+      target: 'https://jsonplaceholder.typicode.com/',
+      pathRewrite: { '^/apiTypicode/': '' }
+    },
+    '/apiNuxt/': {
+      target: 'https://api.nuxtjs.dev/',
+      pathRewrite: { '^/apiNuxt/': '' }
+    },
+
+  },
+
+
   sentry: {
     dsn: 'https://322f2dfba5414431ba4cec1707c6cdc3@o976692.ingest.sentry.io/5933230', // Enter your project's DSN here
     // Additional Module Options go here
@@ -52,6 +69,32 @@ export default {
       // https://docs.sentry.io/platforms/javascript/guides/vue/configuration/options/
     },
   },
+  // logRocket: {
+  //   logRocketId: 'ppzigr/foo',
+  //   devModeAllowed: false,
+  //   config: {
+  //     release: null,
+  //     console: {
+  //       isEnabled: true
+  //     },
+  //     network: {
+  //       isEnabled: true,
+  //       networkRequestSanitizer: () => { },
+  //       networkResponseSanitizer: () => { }
+  //     },
+  //     dom: {
+  //       isEnabled: true,
+  //       inputSanitizer: false,
+  //       textSanitizer: false,
+  //       baseHref: null
+  //     },
+  //     shouldCaptureIP: true,
+  //     rootHostname: null,
+  //     shouldDebugLog: true,
+  //     mergeIframes: false
+  //   }
+  // },
+
   // Vuetify module configuration: https://go.nuxtjs.dev/config-vuetify
   vuetify: {
     customVariables: ['~/assets/variables.scss'],

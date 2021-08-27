@@ -6,7 +6,7 @@
   },
   {
     "icon": "mdi-briefcase-check-outline",
-    "title": "foo",
-    "to": "/foo"
+    "title": "fetching",
+    "to": "/data-fetching"
   }
 ]
