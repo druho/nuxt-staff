@@ -12,7 +12,7 @@
       >
     </v-list-item>
     <v-list dense nav>
-      <v-list-item-group v-model="selectedItem" color="deep-purple">
+      <v-list-item-group v-model="selectedItem">
         <v-list-item v-for="(item, i) in items" :key="i" :to="item.to">
           <v-list-item-action>
             <v-icon>{{ item.icon }}</v-icon>
