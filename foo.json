@@ -1,0 +1,18 @@
+{
+  "message": "Request failed with status code 404",
+  "name": "Error",
+  "stack": "Error: Request failed with status code 404\n    at createError (webpack-internal:///./node_modules/axios/lib/core/createError.js:16:15)\n    at settle (webpack-internal:///./node_modules/axios/lib/core/settle.js:17:12)\n    at XMLHttpRequest.handleLoad (webpack-internal:///./node_modules/axios/lib/adapters/xhr.js:62:7)\n    at XMLHttpRequest.sentryWrapped (webpack-internal:///./node_modules/@sentry/browser/esm/helpers.js:80:23)",
+  "config": {
+    "url": "/apiNuxt/beers6",
+    "method": "get",
+    "headers": { "Accept": "text/plain, */*", "foo": "bar" },
+    "baseURL": "/",
+    "transformRequest": [null],
+    "transformResponse": [null],
+    "timeout": 0,
+    "xsrfCookieName": "XSRF-TOKEN",
+    "xsrfHeaderName": "X-XSRF-TOKEN",
+    "maxContentLength": -1,
+    "maxBodyLength": -1
+  }
+}

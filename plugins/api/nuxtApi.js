@@ -16,6 +16,7 @@ export default function ({ $axios }, inject) {
   inject('nuxtApi', {
     getPlanets,
     getBeers,
+    getBeers2,
     getPostById
   });
 
@@ -28,13 +29,47 @@ export default function ({ $axios }, inject) {
     return data;
   }
   async function getBeers() {
+    const foo = await api.get("/apiNuxt/beers");
+    console.log(JSON.stringify(foo));
+
     const { data } = await api.get("/apiNuxt/beers");
     console.log(`[plugin.nuxtApi.getBeers - ${getSide()}] length: ${data.length}`)
     return data;
   }
+  async function getBeers2() {
+    try {
+      return unWrap(
+        await api.get("/apiNuxt/beers6")
+      )
+    } catch (error) {
+      handelError(error)
+    }
+  }
+
   async function getPostById(id) {
     const { data } = await api.get(`/apiNuxt/posts/${id}`);
     console.log(`[plugin.nuxtApi.getPostById - ${getSide()}] post.title: ${data.title}`)
     return data;
   }
+
+  async function unWrap(response) {
+    const { data, status, statusText } = response;
+    const result = {
+      data,
+      error: {}
+    }
+    console.log(`unWrap: ${JSON.stringify(result)}`);
+    return result;
+  }
+  function handelError(error) {
+    console.log(`handelError: ${JSON.stringify(error)}`);
+
+    return {
+      data: {},
+      error
+      // status: 500,
+      // statusText: error.message,
+    }
+  }
+
 }

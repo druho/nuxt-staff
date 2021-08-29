@@ -62,6 +62,7 @@ export default {
 
   sentry: {
     dsn: 'https://322f2dfba5414431ba4cec1707c6cdc3@o976692.ingest.sentry.io/5933230', // Enter your project's DSN here
+    environment: 'production',
     // Additional Module Options go here
     // https://sentry.nuxtjs.org/sentry/options
     config: {
@@ -120,5 +121,9 @@ export default {
 
   // Build Configuration: https://go.nuxtjs.dev/config-build
   build: {
+  },
+  server: {
+    // host: '0.0.0.0',
+    port: 5000
   }
 }

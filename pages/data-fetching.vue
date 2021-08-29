@@ -4,7 +4,7 @@
       <v-col cols="12" md="4">
         <v-card>
           <v-card-title> typicode</v-card-title>
-          <v-card-subtitle class="font-weight-bold red--text"
+          <v-card-subtitle class="font-weight-bold error--text"
             >$axios asyncData</v-card-subtitle
           >
           <v-card-text>
@@ -13,7 +13,7 @@
             </ul></v-card-text
           >
           <v-divider></v-divider>
-          <v-card-subtitle class="font-weight-bold red--text"
+          <v-card-subtitle class="font-weight-bold error--text"
             >$nuxtApi.loadBeers</v-card-subtitle
           >
           <v-card-text>
@@ -25,7 +25,7 @@
             <v-btn class="primary" @click="loadBeers">load bears</v-btn>
           </v-card-actions>
           <v-divider></v-divider>
-          <v-card-subtitle class="font-weight-bold red--text"
+          <v-card-subtitle class="font-weight-bold error--text"
             >$nuxtApi fetch</v-card-subtitle
           >
           <v-card-text>
@@ -80,7 +80,7 @@ export default {
       return process.client ? "client" : "server";
     },
     async loadBeers() {
-      this.beers = await this.$nuxtApi.getBeers();
+      this.beers = (await this.$nuxtApi.getBeers2()).data;
     },
   },
 };
